@@ -1,0 +1,28 @@
+name: astrbot_plugin_persona_harvester
+display_name: 人格采集器
+author: qweQ-1
+version: v1.0.0
+repo: https://github.com/qweQ-1/astrbot-plugin-persona-harvester
+desc: 按 QQ 号锁定采集指定用户的聊天记录，持续收集并整理成第三人称人格设定提示词，可一键写入 AstrBot 人格库
+short_desc: 按 QQ 号锁定采集聊天记录，整理成人格设定提示词
+help: |
+  指令（仅管理员）：
+  - 人格采集 开 <QQ号>              把 QQ 号加入运行时锁定名单
+  - 人格采集 关 <QQ号>              移出运行时锁定名单
+  - 人格采集 列表                    查看锁定名单与采集统计
+  - 人格采集 补采 <QQ号> <群号> [条数]  回溯拉取历史消息
+  - 人格采集 生成 <QQ号>            用采集语料生成人格设定
+  - 人格采集 查看 <QQ号>            查看已生成的人格设定全文
+  - 人格采集 应用 <QQ号>            把最新人格写入 AstrBot 人格库
+  - 人格采集 清空 <QQ号>            清空该 QQ 号的采集语料
+
+  采集是旁路的：不会打断群聊、不会触发回复、不改变其它插件的行为。
+  采集内容保存在本机 data/plugin_data/astrbot_plugin_persona_harvester/ 下。
+category: AI 增强
+tags:
+  - 人格
+  - 数据采集
+  - 记忆
+support_platforms:
+  - aiocqhttp
+astrbot_version: ">=4.27.2"

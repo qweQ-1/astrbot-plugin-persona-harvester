@@ -1,0 +1,53 @@
+{
+  "target_qq": {
+    "description": "需要采集聊天记录的 QQ 号列表（按 QQ 号锁定）",
+    "hint": "只有这些 QQ 号发出的消息会被采集入库。留空则不采集任何人的消息。",
+    "type": "list",
+    "default": []
+  },
+  "collect_enabled": {
+    "description": "总开关：是否开启采集",
+    "type": "bool",
+    "default": true
+  },
+  "only_in_group": {
+    "description": "只采集群聊消息（关闭则群聊 + 私聊都采集）",
+    "hint": "开启后私聊消息不会入库，能减少隐私风险。",
+    "type": "bool",
+    "default": false
+  },
+  "ignore_bot_self": {
+    "description": "忽略机器人自己发出的消息",
+    "type": "bool",
+    "default": true
+  },
+  "min_message_chars": {
+    "description": "短于这个字数的消息直接丢弃",
+    "hint": "「嗯」「好」这类没有信息量的消息没有采集价值，默认 2 字。",
+    "type": "int",
+    "default": 2
+  },
+  "max_message_chars": {
+    "description": "单条消息最多保留多少字",
+    "type": "int",
+    "default": 2000
+  },
+  "auto_generate": {
+    "description": "每采集够一批消息就自动生成新的人格版本",
+    "hint": "开启后，达到阈值的瞬间会自动调用一次大模型生成人格，会消耗 token。",
+    "type": "bool",
+    "default": false
+  },
+  "auto_generate_threshold": {
+    "description": "自动生成的触发条数阈值",
+    "hint": "每新采集到这么多条消息就自动生成一次人格。",
+    "type": "int",
+    "default": 200
+  },
+  "generate_provider_id": {
+    "description": "指定用于生成人格的 provider id",
+    "hint": "留空则使用会话当前使用的模型。可在 AstrBot 的模型配置页查看 provider id。",
+    "type": "string",
+    "default": ""
+  }
+}
